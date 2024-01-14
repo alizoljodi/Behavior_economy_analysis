@@ -1,6 +1,7 @@
-from users.users import user
-
-class MastodonUsers(User):
+import sys 
+sys.path.append('users/')
+from users import user
+class MastodonUsers(user):
     def __init__(self, user_id, user_name, acct, bot, group, create_datetime, url, uri, followers_count, following_count, status_count, last_status):
         super().__init__()
         self._user_id = user_id
