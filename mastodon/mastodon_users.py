@@ -2,8 +2,10 @@ import sys
 sys.path.append('users/')
 from users import user
 class MastodonUsers(user):
-    def __init__(self, user_id, user_name, acct, bot, group, create_datetime, url, uri, followers_count, following_count, status_count, last_status):
+    def __init__(self):
         super().__init__()
+
+    def set_attribute(self, user_id, user_name, acct, bot, group, create_datetime, url, uri, followers_count, following_count, status_count, last_status):
         self._user_id = user_id
         self._user_name = user_name
         self._acct = acct
@@ -61,4 +63,14 @@ class MastodonUsers(user):
 
     def get_feeling(self):
         pass
+
+    def to_tuple(self):
+        return (self.user_id, self.user_name, self._acct, self.bot,
+        self._group, self._create_datetime,self._url, self._uri, self._followers_count, self._following_count, self._status_count, self._last_status)
+
+    def from_tuple(self, data_tuple):
+        (self.user_id, self.user_name, self._acct, self.bot,
+         self._group, self._create_datetime, self.url, self.uri,
+         self._followers_count, self._following_count,
+         self._status_count, self._last_status) = data_tuple
 

@@ -20,7 +20,8 @@ class mastodon_connection(Mastodon):
         raw_data=self.account_followers(id=id_to_lookup,limit=limit)
         followers=[]
         for follower in raw_data:
-            follower_instance=MastodonUsers(user_id=follower['id'],user_name=follower['username'],acct=follower['acct'],
+            follower_instance=MastodonUsers()
+            follower_instance.set_attribute(user_id=follower['id'],user_name=follower['username'],acct=follower['acct'],
             bot=follower['bot'],group=follower['bot'],create_datetime=follower['created_at'],url=follower['url'],uri=follower['uri'],
             followers_count=follower['followers_count'],following_count=follower['following_count'],status_count=follower['statuses_count'],last_status=follower['last_status_at'])
             followers.append(follower_instance)

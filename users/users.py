@@ -13,3 +13,6 @@ class user():
 
     def get_feeling(self):
         pass
+
+    def to_tuple(self):
+        pass
